@@ -1,0 +1,390 @@
+<section class="inner-banner">
+  <img
+    class="img-fluid"
+    src="{{ section.settings.product_banner | img_url: 'master' }}"
+    alt="">
+  <div class="inner-banner-cont">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ page_title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+{% comment %}
+  The above code creates a new template for single product pages.
+  You can customize this template to suit your specific design and requirements.
+{% endcomment %}
+
+{% assign product = product %}
+
+<section class="product-details-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-5 mb-4">
+        <div class="product-left-wrap">
+          <div class="product-big-slider" id="product-big-slider">
+            {% for image in product.media %}
+              <div class="productbig-sld-items">
+                <div class="product-big-img">
+                    {% comment %} <img class="img-fluid" src="images/product-img1.jpg" alt=""> {% endcomment %}
+                  <img
+                    class="img-fluid"
+                    src="{{ image | img_url: 'master' }}"
+                    alt="{{ product.title }} Image">
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="product-thumbnail-slider" id="product-thumbnail-slider">
+            {% for image in product.media %}
+              <div class="prd-thumbnail-sld-items">
+                <div class="thumbnail-img">
+                  <img
+                    class="img-fluid"
+                    src="{{ image | img_url: 'master' }}"
+                    alt="{{ product.title }} Image">
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-7 mb-4">
+        <div class="product-content">
+          <h3>{{ product.title }}</h3>
+          <h5 class="price" id="price">{{ product.variants.first.price | money }}</h5>
+          <p>
+            {{ product.description | truncatewords: 9 }}
+          </p>
+
+          {% comment %} <a href="#" class="btn btn-gradient">Add To Cart</a> {% endcomment %}
+
+          {% if product.available %}
+            <form
+              action="/cart/add"
+              method="post"
+              enctype="multipart/form-data">
+
+              {% if product.variants.size > 1 %}
+                <h4>Select options</h4>
+                <div id="field1" class="count-bx mb-3">
+                  <select
+                    id="variant-select"
+                    name="id"
+                    class="form-select"
+                    style="width: max-content;padding-right: 25px;">
+                    {% for variant in product.variants %}
+                      <option
+                        value="{{ variant.id }}"
+                        data-inventory="{{ variant.inventory_quantity }}"
+                        data-price="{{ variant.price | money }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% else %}
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ product.variants.first.id }}">
+
+              {% endif %}
+              <h4>Quantity</h4>
+              <div id="field1" class="count-bx mb-3">
+                <a
+                  href="javascript:void(0)"
+                  id="sub"
+                  class="sub"
+                  style="font-size: 25px;">-</a>
+                <input
+                  id="1"
+                  value="1"
+                  name="quantity"
+                  min="1"
+                  max="3">
+                <a
+                  href="javascript:void(0)"
+                  id="add"
+                  class="add"
+                  style="font-size: 25px;">+</a>
+              </div>
+
+              <input
+                type="submit"
+                class="btn btn-gradient"
+                value="Add to Cart">
+            </form>
+          {% else %}
+            <p>This product is currently unavailable.</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-12 mb-4">
+        <div class="review-tab-wrapper">
+          <ul
+            class="nav nav-tabs mb-3"
+            id="ReviewTab"
+            role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                data-bs-toggle="tab"
+                href="#tab1"
+                role="tab">Description</a>
+            </li>
+          {% comment %}
+            <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab">Review</a>
+            </li>
+          {% endcomment %}
+          </ul>
+          <div class="tab-content" id="ReviewTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="tab1"
+              role="tabpanel">
+              {{ product.description }}
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="tab2"
+              role="tabpanel">
+              <div class="review-bx">
+                <div class="rating">
+                  <ul>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <h4>James
+                  <span>on Jun 15, 2022</span>
+                </h4>
+                <p>Sonsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              <div class="review-bx">
+                <div class="rating">
+                  <ul>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <h4>William
+                  <span>on Aug 20, 2022</span>
+                </h4>
+                <p>Sonsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+
+              <div class="review-form-wrap">
+                <h4>BE THE FIRST TO REVIEW “Medium Dark Ground”</h4>
+                <div class="row">
+                  <div class="col-12 col-md-12 mb-3">
+                    <div class="rating-wrap">
+                      <label>Your rating
+                      </label>
+                      <ul class="rate-area">
+                        <input
+                          type="radio"
+                          id="5-star"
+                          name="rating"
+                          value="5"><label for="5-star" title="Amazing">5 stars</label>
+                        <input
+                          type="radio"
+                          id="4-star"
+                          name="rating"
+                          value="4"><label for="4-star" title="Good">4 stars</label>
+                        <input
+                          type="radio"
+                          id="3-star"
+                          name="rating"
+                          value="3"><label for="3-star" title="Average">3 stars</label>
+                        <input
+                          type="radio"
+                          id="2-star"
+                          name="rating"
+                          value="2"><label for="2-star" title="Not Good">2 stars</label>
+                        <input
+                          type="radio"
+                          id="1-star"
+                          name="rating"
+                          value="1"><label for="1-star" title="Bad">1 star</label>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Name *</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Email *</label>
+                      <input
+                        class="form-control"
+                        type="email"
+                        name="">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12 mb-3">
+                    <div class="form-group">
+                      <label>Your review *</label>
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <input
+                      class="btn btn-gradient"
+                      type="submit"
+                      name=""
+                      value="Submit">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 ">
+        <div class="related-product-wrap">
+          <div class="comon-title text-center mb-4">
+            <h3>Related products</h3>
+          </div>
+
+          <div class="related-products-slider" id="related-products-slider">
+            {% assign current_collection = product.collections.first %}
+            {% for product_in_collection in collections[current_collection.handle].products %}
+              {% if product_in_collection.id != product.id %}
+                <!-- Add more details as needed -->
+                <div class="related-products-sld-items">
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      <div class="offer-tag">-20% Off</div>
+                      <a href="{{ product_in_collection.url}}?view=custom">
+                          {% comment %} <img class="img-fluid" src="images/product-img1.jpg" alt=""> {% endcomment %}
+                        <img
+                          class="img-fluid"
+                          src="{{ product_in_collection.featured_image | img_url: 'master' }}"
+                          alt="">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)" id="add_icon2">
+                              <i class="fa-solid fa-cart-arrow-down"></i>
+                            </a>
+                            <form
+                              action="/cart/add?view=custom"
+                              method="post"
+                              enctype="multipart/form-data">
+                              <input
+                                type="hidden"
+                                name="id"
+                                value="{{ product_in_collection.variants.first.id }}">
+                              <input
+                                type="submit"
+                                id="add_button2"
+                                value="Add to Cart"
+                                style="display:none;">
+                            </form>
+                          </li>
+                          <li>
+                            <a href="{{ product_in_collection.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <h3>
+                        <a href="{{ product_in_collection.url }}?view=custom">{{ product_in_collection.title }}</a>
+                      </h3>
+                      <div class="qty">( {{ product_in_collection.variants.first.inventory_quantity }}pcs )</div>
+                      <div class="price">
+                        {{ product.price | money }}
+                        {% if product.compare_at_price != '' %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      </div>
+                      {% comment %}
+                        <div class="rating-wrap">
+                        <img class="img-fluid" src="images/rating-img.png" alt=""> <span>( 5.2 K Reviews )</span>
+                        </div>
+                      {% endcomment %}
+                      <form
+                        action="/cart/add"
+                        method="post"
+                        enctype="multipart/form-data">
+                        <input
+                          type="hidden"
+                          name="id"
+                          value="{{ product.variants.first.id }}">
+                        <div class="shop-btn-wrap">
+                          <input
+                            class="btn shop-btn"
+                            type="submit"
+                            value="Buy Now!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product Details Setting",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "product_banner"
+      }
+    ]
+  }
+{% endschema %}

@@ -4,8 +4,8 @@
     "theme_name": "Dawn",
     "theme_version": "12.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -1463,6 +1463,137 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "background-1"
+      }
+    ]
+  },
+  {
+    "name": "Home Setting",
+    "settings": [
+      {
+        "type": "textarea",
+        "label": "Banner Heading",
+        "id": "banner_heading"
+      },
+      {
+        "type": "text",
+        "label": "Shop Now button link",
+        "id": "button_link"
+      },
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "banner_image"
+      },
+      {
+        "type": "image_picker",
+        "label": "Set Collection Image",
+        "id": "custom_collection1_img"
+      },
+      {
+        "type": "collection",
+        "id": "custom_collection1"
+      },
+      {
+        "type": "image_picker",
+        "label": "Set Collection Image",
+        "id": "custom_collection2_img"
+      },
+      {
+        "type": "collection",
+        "id": "custom_collection2"
+      },
+      {
+        "type": "textarea",
+        "label": "Banner Heading",
+        "id": "banner_heading1"
+      },
+      {
+        "type": "text",
+        "label": "Shop Now button link",
+        "id": "button_link1"
+      },
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "banner_image1"
+      },
+      {
+        "type": "textarea",
+        "label": "Banner Heading",
+        "id": "banner_heading2"
+      },
+      {
+        "type": "text",
+        "label": "Shop Now button link",
+        "id": "button_link2"
+      },
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "banner_image2"
+      },
+      {
+        "type": "image_picker",
+        "label": "Set Collection Image",
+        "id": "custom_collection3_img"
+      },
+      {
+        "type": "collection",
+        "id": "custom_collection3"
+      },
+      {
+        "type": "image_picker",
+        "label": "Set Collection Image",
+        "id": "custom_collection4_img"
+      },
+      {
+        "type": "collection",
+        "id": "custom_collection4"
+      }
+    ]
+  },
+  {
+    "name": "Footer Setting",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Footer Phone",
+        "id": "footer_phone"
+      },
+      {
+        "type": "textarea",
+        "label": "Footer Address",
+        "id": "footer_address"
+      },
+      {
+        "type": "text",
+        "label": "Social FB Link",
+        "id": "footer_fb_link"
+      },
+      {
+        "type": "text",
+        "label": "Social Instagram Link",
+        "id": "footer_instagram_link"
+      },
+      {
+        "type": "text",
+        "label": "Social Twitter Link",
+        "id": "footer_twitter_link"
+      },
+      {
+        "type": "text",
+        "label": "Social LinkedIn Link",
+        "id": "footer_linkedin_link"
+      },
+      {
+        "type": "text",
+        "label": "Copyright Text",
+        "id": "footer_copyright"
+      },
+      {
+        "type": "textarea",
+        "id": "newsletter",
+        "label": "Newsletter Text"
       }
     ]
   }

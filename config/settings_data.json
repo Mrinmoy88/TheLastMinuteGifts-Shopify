@@ -1,5 +1,351 @@
 {
-  "current": "Default",
+  "current": {
+    "logo": "shopify:\/\/shop_images\/logo.png",
+    "logo_width": 90,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "background-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "background-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "accent-2",
+    "sold_out_badge_color_scheme": "inverse",
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "banner_heading": "When time is short, our gifts are right!",
+    "button_link": "\/pages\/shop",
+    "banner_image": "shopify:\/\/shop_images\/Group_969.jpg",
+    "custom_collection1_img": "shopify:\/\/shop_images\/gifts-add-img1.jpg",
+    "custom_collection1": "fun-gifts",
+    "custom_collection2_img": "shopify:\/\/shop_images\/gifts-add-img2.jpg",
+    "custom_collection2": "featured-collection",
+    "banner_heading1": "<h5>Sale up to 50% off<\/h5>\n          <h3>Gifts For Children<\/h3>",
+    "button_link1": "\/pages\/shop",
+    "banner_image1": "shopify:\/\/shop_images\/gifts-children-right-img1.png",
+    "banner_heading2": "<h3>\n            Welcome To <br>\n            Thelastminutegifts Shop\n          <\/h3>\n          <p>\n            You'll discover a curated collection of handpicked treasures that cater to every taste and occasion. Whether\n            you're celebrating a special milestone, expressing your heartfelt appreciation, or simply indulging in a\n            little self-pampering, our diverse range of gifts is designed to inspire and delight.\n          <\/p>",
+    "button_link2": "\/pages\/shop",
+    "banner_image2": "shopify:\/\/shop_images\/thelastminutegifts-left-img.png",
+    "custom_collection3_img": "shopify:\/\/shop_images\/gifts-add-img3.jpg",
+    "custom_collection3": "frontpage",
+    "custom_collection4_img": "shopify:\/\/shop_images\/gifts-add-img4.jpg",
+    "custom_collection4": "best-seller",
+    "footer_phone": "650-440-5858",
+    "footer_address": "2899 Bethany Road, San Ramon, CA, USA, 94582",
+    "footer_fb_link": "#",
+    "footer_instagram_link": "#",
+    "footer_twitter_link": "#",
+    "footer_linkedin_link": "#",
+    "footer_copyright": "Copyright © 2023. All Rights Reserved.",
+    "newsletter": "<h3>Keep Updated & Get Unlimited Discount<\/h3>\n              <p>Sign up for our newsletter to receive updates and exclusive offers<\/p>",
+    "checkout_header_image": "shopify:\/\/shop_images\/inner-banner-contact.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_c209d8c7-a8ca-4a61-8a7f-97b635b3f77b.png",
+    "checkout_body_background_image": "shopify:\/\/shop_images\/gift-card-envelopes.jpg",
+    "checkout_input_background_color_mode": "transparent",
+    "checkout_sidebar_background_image": "shopify:\/\/shop_images\/gift-card-envelopes.jpg",
+    "about_banner": "shopify:\/\/shop_images\/inner-banner-about.jpg",
+    "about_left_img": "shopify:\/\/shop_images\/thelastminutegifts-left-img.png",
+    "right_text": "<h3>Welcome To <br>\n              Thelastminutegifts Shop<\/h3>\n            <p>You'll discover a curated collection of handpicked treasures that cater to every taste and occasion.\n              Whether you're celebrating a special milestone, expressing your heartfelt appreciation, or simply\n              indulging in a little self-pampering, our diverse range of gifts is designed to inspire and delight.<\/p>",
+    "about_right_img": "shopify:\/\/shop_images\/gifts-children-right-img1.png",
+    "left_text": "<h5>Sale up to 50% off <\/h5>\n            <h3>Gifts For Children<\/h3>\n            <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim\n              pellentesque felis.<\/p>",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "home": {
+        "type": "home",
+        "blocks": {
+          "b7afaf23-e44b-4b9a-a95a-5ac1154927a8": {
+            "type": "text",
+            "settings": {
+              "banner_hedding": "AI-Powered Gifts:",
+              "banner_sub_hedding": "Trendy gifts for every occasion",
+              "banner_child_hedding": "Discover the future of gift-giving",
+              "image_banner": "shopify:\/\/shop_images\/banner1_1.jpg"
+            }
+          },
+          "07bee828-8b4a-4c83-8f32-7a7374bf7eff": {
+            "type": "text",
+            "settings": {
+              "banner_hedding": "Save 25%",
+              "banner_sub_hedding": "Save and spread the love!",
+              "banner_child_hedding": "Enjoy the love of giving trendy gifts to your family and friends!",
+              "image_banner": "shopify:\/\/shop_images\/banner2_1.jpg"
+            }
+          },
+          "afa583b4-ddf4-45d3-b991-de574afcc2d0": {
+            "type": "text",
+            "settings": {
+              "banner_hedding": "From Your Heart to Their Hands:",
+              "banner_sub_hedding": "Celebrate Any Occasion with Customization.",
+              "banner_child_hedding": "Turn the Ordinary into the Extraordinary by Creating and capturing lifelong memories.",
+              "image_banner": "shopify:\/\/shop_images\/banner3_1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b7afaf23-e44b-4b9a-a95a-5ac1154927a8",
+          "07bee828-8b4a-4c83-8f32-7a7374bf7eff",
+          "afa583b4-ddf4-45d3-b991-de574afcc2d0"
+        ],
+        "settings": {
+        }
+      },
+      "about": {
+        "type": "about",
+        "blocks": {
+          "c98fbe0c-a8a0-48f9-8147-9902a682bbfa": {
+            "type": "text",
+            "settings": {
+              "text_heading": "Quick order",
+              "subtext": "",
+              "icon_class": "fa-solid fa-cart-plus"
+            }
+          },
+          "f6c47983-fb76-4ca0-9d04-7d44e0dfb154": {
+            "type": "text",
+            "settings": {
+              "text_heading": "Free delivery",
+              "subtext": "",
+              "icon_class": "fa-solid fa-truck"
+            }
+          },
+          "a67eab81-a124-4dee-96b7-b0fa248b4c14": {
+            "type": "text",
+            "settings": {
+              "text_heading": "Easy return",
+              "subtext": "",
+              "icon_class": "fa-solid fa-truck-arrow-right"
+            }
+          }
+        },
+        "block_order": [
+          "c98fbe0c-a8a0-48f9-8147-9902a682bbfa",
+          "f6c47983-fb76-4ca0-9d04-7d44e0dfb154",
+          "a67eab81-a124-4dee-96b7-b0fa248b4c14"
+        ],
+        "settings": {
+          "about_banner": "shopify:\/\/shop_images\/inner-banner-about.jpg",
+          "about_left_img": "shopify:\/\/shop_images\/thelastminutegifts-left-img.png",
+          "right_text": "<h3>Welcome To <br>\n              Thelastminutegifts Shop<\/h3>\n            <p>Welcome to Last Minute Gifts – your ultimate AI-powered ally in the world of gift-giving!\nWho We Are\nAt Last Minute Gifts, we understand that finding the perfect gift, especially at the last minute, can be a daunting task. That's why we've dedicated ourselves to simplifying this process with the power of Artificial Intelligence. Our domain, thelastminutegifts.com, is more than just a website; it's a revolutionary approach to gift shopping.<\/p>\n<h4>Why Choose Us?<\/h4>\n<ul>\n<li>AI-Powered Recommendations: Get smart, personalized gift ideas that hit the mark every time.<\/li>\n<li>Time-Saving: No more endless browsing. Our AI does the heavy lifting, so you don't have to.<\/li>\n<li>Diverse Range: Gifts for every person, personality, and occasion.<\/li>\n<li>Quality Assurance: Each product is handpicked for its quality, uniqueness, and potential to delight.<\/li>\n<\/ul>\n<h4>Join the Revolution<\/h4>\n<p>At Last Minute Gifts, we're more than just a service; we're a community of last-minute shoppers turning panic into pleasure. Say goodbye to gift-giving dilemmas and hello to seamless, AI-assisted shopping experiences.\nWelcome aboard – where thoughtful gifting is just a click away!<\/p>",
+          "about_right_img": "shopify:\/\/shop_images\/gifts-children-right-img1.png",
+          "left_text": "<h5>Sale up to 50% off <\/h5>\n            <h3>Gifts For Children<\/h3>",
+          "middle_text1": "<h4>Our Mission<\/h4>\n          <p>Our mission is simple: to make last-minute gift shopping a stress-free, enjoyable experience. Whether you forgot a special date or a sudden occasion popped up, we've got you covered. We believe no one should feel the anxiety of last-minute shopping or the disappointment of an uninspired gift.<\/p>",
+          "middle_text2": "<h4>How We Do It<\/h4>\n          <p>Leveraging advanced AI technology, we provide personalized gift recommendations tailored to your recipient's interests and your unique occasion. Our system learns from each interaction, ensuring that our suggestions are always evolving and improving, just like your taste in gifts!<\/p>",
+          "middle_text3": "<h4>Our Selection<\/h4>\n          <p>Dive into our diverse range of products, curated to cater to any gift-giving occasion. From birthdays and anniversaries to graduations and housewarmings, our selection is designed to impress. We pride ourselves on sourcing unique, thoughtful, and high-quality items that resonate with your loved ones. For Every Gifter Whether you're a planner who got caught off-guard or a spontaneous gifter, our intuitive platform is designed for everyone. We've made it easy and quick to find that perfect gift – even if you're shopping minutes before you need it.<\/p>"
+        }
+      },
+      "custom-contact": {
+        "type": "custom-contact",
+        "settings": {
+          "contact_banner": "shopify:\/\/shop_images\/inner-banner-contact.jpg"
+        }
+      },
+      "sale": {
+        "type": "sale",
+        "settings": {
+          "sale_banner": "shopify:\/\/shop_images\/inner-banner-about.jpg"
+        }
+      },
+      "shop": {
+        "type": "shop",
+        "settings": {
+          "shop_banner": "shopify:\/\/shop_images\/inner-banner-about.jpg"
+        }
+      },
+      "product-details-custom": {
+        "type": "product-details-custom",
+        "settings": {
+          "product_banner": "shopify:\/\/shop_images\/inner-banner-shop.jpg"
+        }
+      },
+      "collection-custom": {
+        "type": "collection-custom",
+        "settings": {
+          "collection_banner": "shopify:\/\/shop_images\/inner-banner-shop.jpg"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "background-2": {
+        "settings": {
+          "background": "#f3f3f3",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f3f3f3",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "inverse": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-1": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-2": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
   "presets": {
     "Default": {
       "logo_width": 90,

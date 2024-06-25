@@ -1,0 +1,277 @@
+{% assign product = product %}
+
+<section class="inner-banner">
+  <img
+    class="img-fluid"
+    src="{{ section.settings.shop_banner | img_url: 'master' }}"
+    alt="">
+  <div class="inner-banner-cont">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Shop</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shop-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3 mb-4">
+        <div class="left-sidebar">
+          <div class="category-main-wrap">
+            <h3 class="sidebar-title">Categories</h3>
+
+            <ul class="left-category-wrap">
+              {% assign counter = 0 %}
+              {% for link in linklists['category-listing'].links %}
+                {% assign counter = counter | plus: 1 %}
+                <li class="category-list accordion_list">
+                  <h4 class="cat-title accordion_head {% if counter == 1 %} open {% else %} close-tog {% endif %}">
+                    <a href="javascript:void(0);">{{ link.title }}</a>
+                    <span class="up-down-wrrow"></span>
+                  </h4>
+
+                  {% if link.links.size > 0 %}
+                    <ul
+                      class="cat-body accordion_body active"
+                      {% if counter == 1 %}
+                      style="display:block"
+                      {% else %}
+                      style="display:none"
+                      {% endif %}>
+                      {% for sublink in link.links %}
+                        <li class="category-list accordion_sub_list">
+                          <h4 class="cat-title accordion_sub_head">
+                            <a href="javascript:void(0);">{{ sublink.title }}</a>
+                            <span class="up-down-wrrow"></span>
+                          </h4>
+
+                          {% if sublink.links.size > 0 %}
+                            <ul class="cat-body accordion_sub_body child">
+                              {% for subsublink in sublink.links %}
+                                <li class="category-list accordion_list">
+                                  <a href="{{ subsublink.url }}?view=custom">{{ subsublink.title }}</a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8 col-lg-9">
+        <div class="row">
+          <div class="col-12 mb-3" style="display: none;">
+            <div class="sort-by-wrap">
+              <span>Sort by</span>
+              <select>
+                <option>Latest</option>
+                <option>Top Rated</option>
+                <option>Best Sellers</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+          {% paginate collections.all.products by 6 %}
+            {% assign counter = 0 %}
+            {% for product in collections.all.products %}
+              {% assign counter = counter | plus: 1 %}
+              {% if product.variants.size > 1 %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      {% comment %} <div class="offer-tag">-20% Off</div> {% endcomment %}
+
+                      <a href="{{ product.url}}?view=custom">
+                        <img
+                          class="img-fluid"
+                          src="{{ product.featured_image | img_url: 'master' }}"
+                          alt=""
+                          width="20%">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+
+                          <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="{{ product.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <h3>
+                        <a href="{{ product.url}}?view=custom">{{ product.title | slice: 0, 30 }}..</a>
+                      </h3>
+                      <form
+                        action="/cart/add"
+                        method="post"
+                        enctype="multipart/form-data">
+                        <select id="variant-select" name="id">
+                          {% for variant in product.variants %}
+                            <option
+                              value="{{ variant.id }}"
+                              data-inventory="{{ variant.inventory_quantity }}"
+                              data-price="{{ variant.price | money }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                          {% endfor %}
+                        </select>
+                        <div class="qty">(
+                          <span id="pcs">{{ product.variants.first.inventory_quantity }}</span>
+                          pcs )</div>
+                        <div class="price" id="price">
+                          {{ product.variants.first.price | money }}
+                        </div>
+                        <div class="shop-btn-wrap">
+                          <input
+                            class="btn shop-btn"
+                            type="submit"
+                            value="Buy Now!">
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      {% comment %} <div class="offer-tag">-20% Off</div> {% endcomment %}
+                      <a href="{{ product.url}}?view=custom">
+                        <img
+                          class="img-fluid"
+                          src="{{ product.featured_image | img_url: 'master' }}"
+                          alt="">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+                          <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)" id="add_icon_{{counter}}">
+                              <i class="fa-solid fa-cart-arrow-down"></i>
+                            </a>
+                            <script>
+                                $(document).ready(function() {
+                                $('#add_icon_{{counter}}').click(function() {
+                                        //alert('ok');
+                                        $('#add_button_{{counter}}').click();
+                                      });
+                                      });
+                            </script>
+                            <form
+                              action="/cart/add"
+                              method="post"
+                              enctype="multipart/form-data">
+                              <input
+                                type="hidden"
+                                name="id"
+                                value="{{ product.variants.first.id }}">
+                              <input
+                                type="submit"
+                                id="add_button_{{counter}}"
+                                value="Add to Cart"
+                                style="display:none;">
+                            </form>
+                          </li>
+                          <li>
+                            <a href="{{ product.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <h3>
+                        <a href="{{ product.url}}?view=custom">{{ product.title }}</a>
+                      </h3>
+                      <div class="qty">( {{ product.variants.first.inventory_quantity }}pcs )</div>
+                      <div class="price">
+                        {{ product.price | money }}
+                        {% if product.compare_at_price != '' %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      </div>
+                      {% comment %}
+                        <div class="rating-wrap">
+                        <img class="img-fluid" src="images/rating-img.png" alt=""> <span>( 5.2 K Reviews )</span>
+                        </div>
+                      {% endcomment %}
+                      <form
+                        action="/cart/add"
+                        method="post"
+                        enctype="multipart/form-data">
+                        <input
+                          type="hidden"
+                          name="id"
+                          value="{{ product.variants.first.id }}">
+                        <div class="shop-btn-wrap">
+                          <input
+                            class="btn shop-btn"
+                            type="submit"
+                            value="Buy Now!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+            {% if paginate.pages > 1 %}
+              <nav class="pagination">
+                {% if paginate.previous %}
+                  <a href="{{ paginate.previous.url }}" class="product-card">Previous</a>
+                {% endif %}
+
+                &nbsp;
+                <span class="current">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+                &nbsp;
+
+                {% if paginate.next %}
+                  <a href="{{ paginate.next.url }}" class="product-card">Next</a>
+                {% endif %}
+              </nav>
+            {% endif %}
+
+
+          {% endpaginate %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Shop Setting",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "shop_banner"
+      }
+    ]
+  }
+{% endschema %}

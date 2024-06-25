@@ -1,0 +1,761 @@
+<section class="new-banner-wrapper">
+  <div class="banner-slider" id="banner-slider">
+    {% assign counter = 0   %}
+    {% for block in section.blocks %}
+      {% assign counter = counter | plus: 1 %}
+      <div class="banner-sld-items">
+        <img class="img-fluid" src="{{ block.settings.image_banner | img_url: 'master' }}" alt="">
+        
+          <div class="new-banner-content">
+              <div class="banner-inner-content">
+                <h3>{{ block.settings.banner_hedding }}</h3>
+                <h4>{{ block.settings.banner_sub_hedding }}</h4>
+                <p>{{ block.settings.banner_child_hedding }}</p>
+
+                {% if counter != 2 %}                  
+                  <a class="btn btn-gradient" href="/pages/shop/">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                {% else %}
+                  <div class="bnr-form">
+                    {% comment %} <input class="form-control" type="text" placeholder="Enter Your e-mail">
+                    <input class="btn btn-gradient" type="submit" value="Submit"> {% endcomment %}
+
+                    {% form 'customer'
+                      , class: 'newsletter-form' %}
+                      <input
+                        type="hidden"
+                        name="contact[tags]"
+                        value="newsletter">                    
+                        
+                          <input
+                            class="form-control"
+                            type="text"
+                            value="{{ form.email }}"
+                            name="contact[email]"
+                            placeholder="Enter Your e-mail"
+                            required>                       
+                        
+                          <input
+                            class="btn btn-gradient"
+                            type="submit"
+                            name="commit"
+                            value="Submit">
+                        
+                        {%- if form.errors -%}
+                          <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                            {%- render 'icon-error' -%}
+                            {{- form.errors.translated_fields.email | capitalize }}
+                            {{ form.errors.messages.email -}}
+                          </small>
+                        {%- endif -%}
+                     
+                      {%- if form.posted_successfully? -%}
+                        <h3
+                          class="newsletter-form__message newsletter-form__message--success form__message"
+                          id="Newsletter-success--{{ section.id }}"
+                          tabindex="-1"
+                          autofocus>
+                          {% render 'icon-success' -%}
+                          {{- 'newsletter.success' | t }}
+                        </h3>
+                      {%- endif -%}
+                    {% endform %}
+                  </div>
+                {% endif %}
+
+              </div>
+             
+          </div>
+      </div>     
+      
+    {% endfor %}
+  </div>
+</section>
+
+<section class="banner-wrapper d-none">
+  <div class="banner-img">
+    {% comment %} <img class="img-fluid" src="images/banner-img.jpg" alt=""> {% endcomment %}
+    <img class="img-fluid" src="{{ settings.banner_image | img_url: 'master' }}" alt="">
+  </div>
+  <div class="banner-content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6" data-aos="fade-right">
+          <div class="banner-content">
+            {{ settings.banner_heading }}
+            <a class="btn btn-gradient" href=" {{ settings.button_link }}"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="last-minute-gifts-category-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 mb-5">
+        <div class="gifts-category-slider" id="gifts-category-slider">
+          {% for collection in collections %}
+            {% comment %}
+              <li>
+                <a href="{{ collection.url }}?view=custom">
+                  {{ collection.title }}
+                </a>
+              </li>
+            {% endcomment %}
+            <div class="category-sld-items">
+              <div class="gifts-category-wrap">
+                <a href="{{ collection.url }}?view=custom">
+                  <div class="gifts-category-img">
+                    {% comment %} <img src="images/gifts-category-img1.jpg" alt=""> {% endcomment %}
+                    <img
+                      class="img-fluid"
+                      src="{{ collection.featured_image | img_url: 'master' }}"
+                      alt="{{ collection.title }}"
+                    >
+                  </div>
+                  <h4>{{ collection.title }}</h4>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4" data-aos="zoom-in">
+        <div class="gifts-add-list">
+          <div class="img">
+            {% comment %} <img class="img-fluid" src="images/gifts-add-img1.jpg" alt=""> {% endcomment %}
+            <img class="img-fluid" src="{{ settings.custom_collection1_img | img_url: 'master' }}" alt="">
+          </div>
+          <div class="gifts-add-content">
+            <h3>
+              {{ settings.custom_collection1.title }}
+            </h3>
+            <a class="btn btn-gradient" href="{{ settings.custom_collection1.url }}?view=custom"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4" data-aos="zoom-in">
+        <div class="gifts-add-list">
+          <div class="img">
+            {% comment %} <img class="img-fluid" src="images/gifts-add-img2.jpg" alt=""> {% endcomment %}
+            <img class="img-fluid" src="{{ settings.custom_collection2_img | img_url: 'master' }}" alt="">
+          </div>
+          <div class="gifts-add-content">
+            <h3>
+              {{ settings.custom_collection2.title }}
+            </h3>
+            <a class="btn btn-info" href="{{ settings.custom_collection2.url }}?view=custom"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-product-wrapper">
+  {% assign best_seller = 'best-seller' %}
+  {% for collection in collections %}
+    {% if collection.handle == best_seller %}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-8 mb-4" data-aos="fade-down">
+            <div class="comon-title">
+              <h3>{{ collection.title }}</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 text-end">
+            <div class="btn-wrap">
+              <button class="featured-prev-btn slick-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="featured-next-btn slick-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 pe-0">
+            <div class="featured-product-slider" id="featured-product-slider">
+              {% assign counter = 0 %}
+              {% for product in collection.products %}
+                {% assign counter = counter | plus: 1 %}
+                
+                <div class="featured-sld-items">
+                  {% if product.variants.size > 1 %}
+                    <div class="product-wrap">
+                      <div class="prd-img">
+                        {% comment %} <div class="offer-tag">-20% Off</div> {% endcomment %}
+    
+                        <a href="{{ product.url}}?view=custom">
+                          <img
+                            class="img-fluid"
+                            src="{{ product.featured_image | img_url: 'master' }}"
+                            alt=""
+                            width="20%">
+                        </a>
+                        <div class="product-cart-wishlist">
+                          <ul>
+                            <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                            <li><a href="{{ product.url}}?view=custom"><i class="fa-regular fa-eye"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <h3>
+                          <a href="{{ product.url}}?view=custom">{{ product.title | slice: 0, 30 }}..</a>
+                        </h3>
+                        <form
+                          action="/cart/add"
+                          method="post"
+                          enctype="multipart/form-data">
+                          <select id="variant-select" name="id">
+                            {% for variant in product.variants %}
+                              <option
+                                value="{{ variant.id }}"
+                                data-inventory="{{ variant.inventory_quantity }}"
+                                data-price="{{ variant.price | money }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                            {% endfor %}
+                          </select>
+                          <div class="qty">(
+                            <span id="pcs">{{ product.variants.first.inventory_quantity }}</span>
+                            pcs )</div>
+                          <div class="price" id="price">
+                            {{ product.variants.first.price | money }}
+                          </div>
+                          <div class="shop-btn-wrap">
+                            <input
+                              class="btn shop-btn"
+                              type="submit"
+                              value="Buy Now!">
+                          </div>
+                        </form>
+    
+                      </div>
+                    </div>
+                  {% else %}
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      <div class="offer-tag">-20% Off</div>
+                      <a href="{{ product.url}}?view=custom">
+                        {% comment %} <img class="img-fluid" src="images/product-img1.jpg" alt=""> {% endcomment %}
+                        <img class="img-fluid" src="{{ product.featured_image | img_url: 'master' }}" alt="">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+                          <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <script>
+                            $(document).ready(function() {
+                            $('#add_icon1_{{counter}}').click(function() {
+                                    //alert('ok');
+                                    $('#add_button1_{{counter}}').click();
+                                  });
+                                  });
+                          </script>
+                          <li>
+                            <a href="javascript:void(0)" id="add_icon1_{{counter}}">
+                              <i class="fa-solid fa-cart-arrow-down"></i>
+                            </a>
+                            <form action="/cart/add" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                              <input type="submit" id="add_button1_{{counter}}" value="Add to Cart" style="display:none;">
+                            </form>
+                          </li>
+                          <li>
+                            <a href="{{ product.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <a href="{{ product.url}}?view=custom">
+                        <h3>{{ product.title }}</h3>
+                      </a>
+                      <div class="qty">( {{ product.variants.first.inventory_quantity }}pcs )</div>
+                      <div class="price">
+                        {{ product.price | money }}
+                        {% if product.compare_at_price != '' %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      </div>
+                      {% comment %}
+                        <div class="rating-wrap">
+                          {% comment %} <img class="img-fluid" src="images/rating-img.png" alt=""> {% endcomment %}
+                          <img class="img-fluid" src="{{ 'rating-img.png' | asset_url }}" alt="">
+                          <span>( 5.2 K Reviews )</span>
+                        </div>
+                      {% endcomment %}
+                      <form action="/cart/add" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <div class="shop-btn-wrap">
+                          <input class="btn shop-btn" type="submit" value="Buy Now!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+<section class="gifts-for-children-wrapper">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-7 mb-4" data-aos="fade-left">
+        <div class="gifts-for-children-content">
+          {{ settings.banner_heading1 }}
+          <a class="btn btn-info-light" href="{{ settings.button_link1 }}"
+            >Shop Now <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-12 col-md-5" data-aos="fade-right">
+        <div class="gifts-children-right-img">
+          {% comment %} <img class="img-fluid" src="images/gifts-children-right-img1.png" alt=""> {% endcomment %}
+          <img class="img-fluid" src="{{ settings.banner_image1 | img_url: 'master' }}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-product-wrapper">
+  {% assign featured_prod = 'featured-collection-1' %}
+  {% for collection in collections %}
+    {% if collection.handle == featured_prod %}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-8 mb-4" data-aos="fade-down">
+            <div class="comon-title">
+              <h3>{{ collection.title }}</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 text-end">
+            <div class="btn-wrap">
+              <button class="featured-prev-btn slick-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="featured-next-btn slick-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 pe-0">
+            <div class="featured-product-slider" id="featured-product-slider">
+              {% assign counter = 0 %}
+              {% for product in collection.products %}
+                {% assign counter = counter | plus: 1 %}
+                
+                <div class="featured-sld-items">
+                  {% if product.variants.size > 1 %}
+                    <div class="product-wrap">
+                      <div class="prd-img">
+                        {% comment %} <div class="offer-tag">-20% Off</div> {% endcomment %}
+    
+                        <a href="{{ product.url}}?view=custom">
+                          <img
+                            class="img-fluid"
+                            src="{{ product.featured_image | img_url: 'master' }}"
+                            alt=""
+                            width="20%">
+                        </a>
+                        <div class="product-cart-wishlist">
+                          <ul>
+                            <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                            <li><a href="{{ product.url}}?view=custom"><i class="fa-regular fa-eye"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <h3>
+                          <a href="{{ product.url}}?view=custom">{{ product.title | slice: 0, 30 }}..</a>
+                        </h3>
+                        <form
+                          action="/cart/add"
+                          method="post"
+                          enctype="multipart/form-data">
+                          <select id="variant-select" name="id">
+                            {% for variant in product.variants %}
+                              <option
+                                value="{{ variant.id }}"
+                                data-inventory="{{ variant.inventory_quantity }}"
+                                data-price="{{ variant.price | money }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                            {% endfor %}
+                          </select>
+                          <div class="qty">(
+                            <span id="pcs">{{ product.variants.first.inventory_quantity }}</span>
+                            pcs )</div>
+                          <div class="price" id="price">
+                            {{ product.variants.first.price | money }}
+                          </div>
+                          <div class="shop-btn-wrap">
+                            <input
+                              class="btn shop-btn"
+                              type="submit"
+                              value="Buy Now!">
+                          </div>
+                        </form>
+    
+                      </div>
+                    </div>
+                  {% else %}
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      <div class="offer-tag">-20% Off</div>
+                      <a href="{{ product.url}}?view=custom">
+                        {% comment %} <img class="img-fluid" src="images/product-img1.jpg" alt=""> {% endcomment %}
+                        <img class="img-fluid" src="{{ product.featured_image | img_url: 'master' }}" alt="">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+                          <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <script>
+                            $(document).ready(function() {
+                            $('#add_icon1_{{counter}}').click(function() {
+                                    //alert('ok');
+                                    $('#add_button1_{{counter}}').click();
+                                  });
+                                  });
+                          </script>
+                          <li>
+                            <a href="javascript:void(0)" id="add_icon1_{{counter}}">
+                              <i class="fa-solid fa-cart-arrow-down"></i>
+                            </a>
+                            <form action="/cart/add" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                              <input type="submit" id="add_button1_{{counter}}" value="Add to Cart" style="display:none;">
+                            </form>
+                          </li>
+                          <li>
+                            <a href="{{ product.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <a href="{{ product.url}}?view=custom">
+                        <h3>{{ product.title }}</h3>
+                      </a>
+                      <div class="qty">( {{ product.variants.first.inventory_quantity }}pcs )</div>
+                      <div class="price">
+                        {{ product.price | money }}
+                        {% if product.compare_at_price != '' %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      </div>
+                      {% comment %}
+                        <div class="rating-wrap">
+                          {% comment %} <img class="img-fluid" src="images/rating-img.png" alt=""> {% endcomment %}
+                          <img class="img-fluid" src="{{ 'rating-img.png' | asset_url }}" alt="">
+                          <span>( 5.2 K Reviews )</span>
+                        </div>
+                      {% endcomment %}
+                      <form action="/cart/add" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <div class="shop-btn-wrap">
+                          <input class="btn shop-btn" type="submit" value="Buy Now!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+<section class="thelastminutegifts-wrapper">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-5 mb-4 mb-md-0" data-aos="fade-left">
+        <div class="thelastminutegifts-left-img">
+          {% comment %} <img class="img-fluid" src="images/thelastminutegifts-left-img.png" alt=""> {% endcomment %}
+          <img class="img-fluid" src="{{ settings.banner_image2 | img_url: 'master' }}" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-7" data-aos="fade-right">
+        <div class="thelastminutegifts-right-content">
+          {{ settings.banner_heading2 }}
+          <a class="btn btn-gradient" href="{{ settings.button_link2 }}"
+            >Shop Now <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="new-product-wrapper">
+  {% assign new_products = 'new-products' %}
+  {% for collection in collections %}
+    {% if collection.handle == new_products %}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-8 mb-4" data-aos="fade-down">
+            <div class="comon-title">
+              <h3>{{ collection.title }}</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 text-end">
+            <div class="btn-wrap">
+              <button class="newprd-prev-btn slick-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="newprd-next-btn slick-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 pe-0 mb-5">
+            <div class="new-product-slider" id="new-product-slider">
+              {% assign counter = 0 %}
+              {% for product in collection.products %}
+                {% assign counter = counter | plus: 1 %}
+                
+                
+                <div class="featured-sld-items">
+                  {% if product.variants.size > 1 %}
+                    <div class="product-wrap">
+                      <div class="prd-img">
+                        {% comment %} <div class="offer-tag">-20% Off</div> {% endcomment %}
+    
+                        <a href="{{ product.url}}?view=custom">
+                          <img
+                            class="img-fluid"
+                            src="{{ product.featured_image | img_url: 'master' }}"
+                            alt=""
+                            width="20%">
+                        </a>
+                        <div class="product-cart-wishlist">
+                          <ul>
+                            <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                            <li><a href="{{ product.url}}?view=custom"><i class="fa-regular fa-eye"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="product-content">
+                        <h3>
+                          <a href="{{ product.url}}?view=custom">{{ product.title | slice: 0, 30 }}..</a>
+                        </h3>
+                        <form
+                          action="/cart/add"
+                          method="post"
+                          enctype="multipart/form-data">
+                          <select id="variant-select" name="id">
+                            {% for variant in product.variants %}
+                              <option
+                                value="{{ variant.id }}"
+                                data-inventory="{{ variant.inventory_quantity }}"
+                                data-price="{{ variant.price | money }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                            {% endfor %}
+                          </select>
+                          <div class="qty">(
+                            <span id="pcs">{{ product.variants.first.inventory_quantity }}</span>
+                            pcs )</div>
+                          <div class="price" id="price">
+                            {{ product.variants.first.price | money }}
+                          </div>
+                          <div class="shop-btn-wrap">
+                            <input
+                              class="btn shop-btn"
+                              type="submit"
+                              value="Buy Now!">
+                          </div>
+                        </form>
+    
+                      </div>
+                    </div>
+                  {% else %}
+                  <div class="product-wrap">
+                    <div class="prd-img">
+                      <div class="offer-tag">-20% Off</div>
+                      <a href="{{ product.url}}?view=custom">
+                        {% comment %} <img class="img-fluid" src="images/product-img1.jpg" alt=""> {% endcomment %}
+                        <img class="img-fluid" src="{{ product.featured_image | img_url: 'master' }}" alt="">
+                      </a>
+                      <div class="product-cart-wishlist">
+                        <ul>
+                          <li style="display: none;">
+                            <a href="#">
+                              <i class="fa-regular fa-heart"></i>
+                            </a>
+                          </li>
+                          <script>
+                            $(document).ready(function() {
+                            $('#add_icon2_{{counter}}').click(function() {
+                                    //alert('ok');
+                                    $('#add_button2_{{counter}}').click();
+                                  });
+                                  });
+                          </script>
+                          
+                          <li>
+                            <a href="javascript:void(0)" id="vsfv">
+                              <i class="fa-solid fa-cart-arrow-down"></i>
+                            </a>
+                            <form action="/cart/add" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                              <input type="submit" id="add_button2_{{counter}}" value="Add to Cart" style="display:none;">
+                            </form>
+                          </li>
+                          <li>
+                            <a href="{{ product.url}}?view=custom">
+                              <i class="fa-regular fa-eye"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="product-content">
+                      <a href="{{ product.url}}?view=custom">
+                        <h3>{{ product.title }}</h3>
+                      </a>
+                      <div class="qty">( {{ product.variants.first.inventory_quantity }}pcs )</div>
+                      <div class="price">
+                        {{ product.price | money }}
+                        {% if product.compare_at_price != '' %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      </div>
+                      {% comment %}
+                        <div class="rating-wrap">
+                          {% comment %} <img class="img-fluid" src="images/rating-img.png" alt=""> {% endcomment %}
+                          <img class="img-fluid" src="{{ 'rating-img.png' | asset_url }}" alt="">
+                          <span>( 5.2 K Reviews )</span>
+                        </div>
+                      {% endcomment %}
+                      <form action="/cart/add" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <div class="shop-btn-wrap">
+                          <input class="btn shop-btn" type="submit" value="Buy Now!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-4 birthday-gifts-add" data-aos="zoom-in">
+        <div class="gifts-add-list">
+          <div class="img">
+            {% comment %} <img class="img-fluid" src="images/gifts-add-img3.jpg" alt=""> {% endcomment %}
+            <img class="img-fluid" src="{{ settings.custom_collection3_img | img_url: 'master' }}" alt="">
+          </div>
+          <div class="gifts-add-content">
+            <h3>
+              {{ settings.custom_collection3.title }}
+            </h3>
+            <a class="btn btn-gradient" href="{{ settings.custom_collection3.url }}?view=custom"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4" data-aos="zoom-in">
+        <div class="gifts-add-list">
+          <div class="img">
+            {% comment %} <img class="img-fluid" src="images/gifts-add-img4.jpg" alt=""> {% endcomment %}
+            <img class="img-fluid" src="{{ settings.custom_collection4_img | img_url: 'master' }}" alt="">
+          </div>
+          <div class="gifts-add-content">
+            <h3>
+              {{ settings.custom_collection4.title }}
+            </h3>
+            <a class="btn btn-info" href="{{ settings.custom_collection4.url }}?view=custom"
+              >Shop Now <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Home Setting",
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Banners",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "banner_hedding",
+            "default": "Heading Text",
+            "label": "Heading"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "banner_sub_hedding",
+            "default": "Banner Sub Heading Text",
+            "label": "Banner Sub Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "banner_child_hedding",
+            "default": "Banner child Heading Text",
+            "label": "Banner child Heading"
+          },
+          {
+            "type": "image_picker",
+            "label": "Banner Image",
+            "id": "image_banner"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

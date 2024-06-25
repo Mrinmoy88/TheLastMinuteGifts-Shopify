@@ -1,0 +1,181 @@
+<section class="inner-banner">
+  <img
+    class="img-fluid"
+    src="{{ section.settings.about_banner | img_url: 'master' }}"
+    alt="">
+  <div class="inner-banner-cont">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ page_title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="thelastminutegifts-wrapper about-page-welcome-wrapper">
+  <div class="container-fluid">
+    <div class="row align-items -center">
+      <div class="col-12 col-md-5 mb-4 mb-md-0" data-aos="fade-left">
+        <div class="thelastminutegifts-left-img">
+          <img
+            class="img-fluid"
+            src="{{ section.settings.about_left_img | img_url: 'master' }}"
+            alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-7" data-aos="fade-right">
+        <div class="thelastminutegifts-right-content">
+          {{ section.settings.right_text }}
+          <a class="btn btn-gradient" href="/pages/shop">Shop Now
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="about-mission-list">
+          {{ section.settings.middle_text1 }}
+
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="about-mission-list">
+          {{ section.settings.middle_text2 }}
+
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <div class="about-mission-list">
+          {{ section.settings.middle_text3 }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gifts-for-children-wrapper">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-7 mb-4" data-aos="fade-left">
+        <div class="gifts-for-children-content">
+          {{ section.settings.left_text }}
+          <a class="btn btn-info-light" href="/pages/shop">Shop Now
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-5" data-aos="fade-right">
+        <div class="gifts-children-right-img">
+          <img
+            class="img-fluid"
+            src="{{ section.settings.about_right_img | img_url: 'master' }}"
+            alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-work-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mb-4 aos-init aos-animate" data-aos="fade-down">
+        <div class="comon-title">
+          <h3>How It Works</h3>
+        </div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="col-12 col-md-4 mb-4 aos-init aos-animate" data-aos="zoom-in">
+          <div class="how-it-work-wrap">
+            <div class="icon">
+              <i class="{{ block.settings.icon_class }}"></i>
+            </div>
+            <h4>{{ block.settings.text_heading }}</h4>
+            <p>
+              {{ block.settings.subtext | richtext }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "About Setting",
+    "blocks": [
+      {
+        "type": "text",
+        "name": "How It Works",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "text_heading",
+            "default": "Heading",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "subtext",
+            "default": "<p>Subtext Details</p>",
+            "label": "Subtext"
+          },
+          {
+            "type": "textarea",
+            "id": "icon_class",
+            "default": "Icon Class",
+            "label": "Icon Class"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "about_banner"
+      },
+      {
+        "type": "image_picker",
+        "label": "Left Image",
+        "id": "about_left_img"
+      },
+      {
+        "type": "textarea",
+        "label": "Right Text",
+        "id": "right_text"
+      },
+      {
+        "type": "image_picker",
+        "label": "Right Image",
+        "id": "about_right_img"
+      },
+      {
+        "type": "textarea",
+        "label": "Left Text",
+        "id": "left_text"
+      },
+      {
+        "type": "textarea",
+        "label": "Middle Block Text",
+        "id": "middle_text1"
+      },
+      {
+        "type": "textarea",
+        "label": "Middle Block Text",
+        "id": "middle_text2"
+      },
+      {
+        "type": "textarea",
+        "label": "Middle Block Text",
+        "id": "middle_text3"
+      }
+    ]
+  }
+{% endschema %}
